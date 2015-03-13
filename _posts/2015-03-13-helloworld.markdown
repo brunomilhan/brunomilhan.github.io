@@ -1,12 +1,12 @@
-----
+---
 -layout:     post
 -title:      "Primeiro post"
 -subtitle:   "Breve apresentação e um incentivo para criar seu website totalmente free! :)"
 -date:       2015-03-13 16:11:48
 -author:     "Bruno Milhan"
 -header-img: "img/post-bg-01.jpg"
-----
--
+---
+
 Olá :)
 
 Neste primeiro de muitos posts irei fazer uma breve apresentação deste novo projeto que estou iniciando, no final irei dar o "caminho das pedras" para criar um website como este.
