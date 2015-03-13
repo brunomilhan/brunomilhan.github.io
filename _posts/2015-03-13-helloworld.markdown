@@ -1,10 +1,10 @@
 ---
--layout:     post
--title:      "Primeiro post"
--subtitle:   "Breve apresentação e um incentivo para criar seu website totalmente free! :)"
--date:       2015-03-13 16:11:48
--author:     "Bruno Milhan"
--header-img: "img/post-bg-01.jpg"
+layout:     post
+title:      "Primeiro post"
+subtitle:   "Breve apresentação e um incentivo para criar seu website totalmente free! :)"
+date:       2015-03-13 16:11:48
+author:     "Bruno Milhan"
+header-img: "img/post-bg-01.jpg"
 ---
 
 Olá :)
