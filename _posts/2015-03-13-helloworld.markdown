@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Primeiro post, Bem vindos! :)"
+title:      "Primeiro post :)"
 subtitle:   "Breve apresentação e um incentivo para criar seu website totalmente free!"
 date:       2015-03-13 16:11:48
 author:     "Bruno Milhan"
