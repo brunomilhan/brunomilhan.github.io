@@ -2,7 +2,7 @@
 layout:     post
 title:      "Introdução a MEAN Stack"
 subtitle:   "Construindo um servidor de páginas estáticas com NodeJS + Express"
-date:       2015-03-13 16:11:48
+date:       2015-03-14 23:11:48
 author:     "Bruno Milhan"
 header-img: "img/home-bg.jpg"
 ---
