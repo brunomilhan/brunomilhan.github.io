@@ -29,6 +29,7 @@ Para instalar o node basta acessar o website [nodejs.org](https://nodejs.org/) e
     node -v
 
 Caso esteja interessado em realizar um helloworld com o nodejs:
+
 ```javascript
 var http = require('http');
 http.createServer(function (req,res){
@@ -36,6 +37,7 @@ http.createServer(function (req,res){
         res.end('Hello world nodejs');
 }).listen(3000, '127.0.0.1');
 ```
+
 Este pequeno trecho de código não tem muito segredo, mas já é interessante para observarmos com o node funciona.
 Primeiramente declaramos que iremos utilizar o módulo http do node e posteriormente utilizamos essa variável para criar um simples servidor de http que escutará em localhost na porta 3000.
 
@@ -46,7 +48,8 @@ Apesar do node por si só já possuir a capacidade de servir o conteúdo web, es
 ##Express##
 
 Vamos ver o que o website do Express diz a respeito de si...
->"Fast, unopinionated, minimalist web framework for Node.js"
+
+> "Fast, unopinionated, minimalist web framework for Node.js"
 >
 **Web Applications**
 Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
@@ -110,6 +113,7 @@ Temos também o **app.use()** tem uma utilização um pouco mais abrangente, nes
 Já temos uma função que retornará uma instancia do express, vamos utiliza-la no nosso **server.js** que criamos no inicio deste artigo, caso você já tenha criado basta copia-lo para a pasta raiz de nosso projeto, entretanto precisamos realizar algumas alterações para informar ao node que estamos utilizando o express, nosso **server.js** ficará assim:
 
 ```javascript
+
 var http = require('http');
 var app = require('./config/express')();
 
