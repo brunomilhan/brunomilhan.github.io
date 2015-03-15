@@ -11,9 +11,7 @@ facebook_username:  brunomilhan
 linkedin_username:  "https://br.linkedin.com/pub/bruno-milhan/51/214/28/pt"
 # Build settings
 markdown: kramdown
-highlighter: pygments
-permalink: rouge
-lsi:         false
-excerpt_separator: "\n\n"
+highlighter: rouge
+permalink: pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
