@@ -13,9 +13,6 @@ Neste primeiro post sobre MEAN Stack veremos o básico necessário para construi
 
 Sempre que possível postarei um novo tópico aprofundando neste assunto, o objetivo desta série de posts é apresetar a stack desenvolvendo uma aplicação para encontrar animais de estimação perdidos.
 
-<a href="#">
-    <img src="{{ site.baseurl }}/img/shutup-meme.jpg" alt="meme">
-</a>
 Vamos ao que interessa! :)
 
 
