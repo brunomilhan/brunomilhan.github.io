@@ -31,7 +31,7 @@ Para instalar o node basta acessar o website [nodejs.org](https://nodejs.org/) e
 
 Caso esteja interessado em realizar um helloworld com o nodejs:
 
-```
+```javascript
 var http = require('http');
 http.createServer(function (req,res){
         res.writeHead(200, {'Content-Type': 'text/plain'});
@@ -89,7 +89,7 @@ Além disso podemos notar que foi criada a pasta node_modules no diretório de n
 
 Com o express instalado em nossa maquina vamos configurá-lo, para isso criaremos o arquivo **express.js** dentro da pasta **/config** e implementar o seguinte código:
 
-```
+```javascript
 var express = require('express');
 
 module.exports = function() {
@@ -115,7 +115,7 @@ Temos também o **app.use()** tem uma utilização um pouco mais abrangente, nes
 Já temos uma função que retornará uma instancia do express, vamos utiliza-la no nosso **server.js** que criamos no inicio deste artigo, caso você já tenha criado basta copia-lo para a pasta raiz de nosso projeto, entretanto precisamos realizar algumas alterações para informar ao node que estamos utilizando o express, nosso **server.js** ficará assim:
 
 
-```
+```javascript
 var http = require('http');
 var app = require('./config/express')();
 
@@ -128,7 +128,7 @@ O que fizemos basicamente foi passar a *var app* que tem uma instância do expre
 
 Vamos criar um simples arquivo html dentro da pasta public para testar nosso servidor de páginas web estáticas.
 
-```
+```html
 <!doctype html>
 <html>
 <head>
