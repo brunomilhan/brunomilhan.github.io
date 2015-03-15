@@ -86,7 +86,7 @@ Já temos uma simples estrutura, vamos instalar o express! Existem duas formas p
 
 **Mas afinal o que é npm?**
 
-NPM é o gerenciador de pacodes padrão do node que foi instalado automaticamente quando instalamos o node. Através da linha de comando ele busca pacotes em [npmjs.com](https://www.npmjs.com/) e nos auxilia a instalar as dependências da aplicação de uma maneira bastante simples.
+NPM é o gerenciador de pacotes padrão do node que foi instalado automaticamente quando instalamos o node. Através da linha de comando ele busca pacotes em [npmjs.com](https://www.npmjs.com/) e nos auxilia a instalar as dependências da aplicação de uma maneira bastante simples.
 Não existe muitos segredos quanto ao npm, com o tempo você verá o quanto ele simplifica o processo de desenvolvimento. :D
 
 Agora que já temos o arquivo de configuração vamos executar o comando:
@@ -97,7 +97,7 @@ A opção **--save** faz com que a dependência seja adicionada no package.json,
 
 Além disso podemos notar que foi criada a pasta **node_modules** no diretório da aplicação, é nesta pasta que ficarão todos os módulos necessários para a aplicação funcionar.
 
-Com o express instalado vamos configurá-lo, para isso criaremos o arquivo **express.js** dentro da pasta **/config** e implementar o seguinte código:
+Com o express instalado vamos configurá-lo, para isso criaremos o arquivo **express.js** dentro da pasta **/config** e implementaremos o seguinte código:
 
 ```javascript
 var express = require('express');
@@ -115,12 +115,12 @@ module.exports = function() {
 };
 ```
 
-O que fizemos acima foi instanciar o módulo express e depois utilizamos um recurso interessante que é o **module.exports** este será responsavel por retornar uma instancia do express sempre que necessario.
+O que fizemos acima foi instanciar o módulo express e depois utilizamos um recurso interessante que é o **module.exports** este será responsavel por retornar uma instância do express sempre que necessário.
 Em nodejs tudo que utilizar module.exports ficará visível em todo escopo da aplicação.
 
 Podemos notar também o uso de **app.set(*chave, valor*)**  que é utilizado para armazenar variáveis de ambiente no formato chave - valor que poderão ser recuperadas através da função **app.get(*valor*)**. 
 
-Temos também o **app.use()** tem uma utilização um pouco mais abrangente, neste exemplo estamos utilizando apenas para criar um middleware que sirvirá páginas estáticas através de **express.static(*./local*)**. Futuramente veremos que ele também servirá para efetuar as operações do http.
+Temos também o **app.use()** que tem uma utilização um pouco mais abrangente, neste exemplo estamos utilizando apenas para criar um middleware que sirvirá páginas estáticas através de **express.static(*./local*)**. Futuramente veremos que ele também servirá para efetuar as operações do http.
 
 Já temos uma função que retornará uma instancia do express, vamos utiliza-la em **server.js** que criamos no inicio deste artigo, caso você já tenha criado basta copia-lo para a pasta raiz do projeto, entretanto precisamos realizar algumas alterações para informar ao node que estamos utilizando o express, o arquivo **server.js** ficará assim:
 
@@ -154,14 +154,14 @@ Pronto! :) Agora execute o comando **node server** dentro da pasta raiz da aplic
 
 Observou como é simples criar um servidor http? :)
 
-Você pode ver este exemplo completo no repositório [GitHub](https://github.com/brunomilhan/example-express-node), postarei toda a aplicação neste reposotório. 
+Você pode ver este exemplo completo no repositório do [GitHub](https://github.com/brunomilhan/example-express-node), futuramente postarei toda a aplicação neste reposotório. 
 
-Quando penso no empenho que era configurar um servidor apache-tomcat ao trabalhar com java+jsf, configurar a ide, instalar as dependências... E se precisar mudar de maquina? esqueça, terá um grande trabalho.
+Quando penso no empenho que era configurar um servidor apache-tomcat ao trabalhar com java+jsf, configurar a IDE, instalar as dependências... E se precisar mudar de maquina? Com certeza terá um grande trabalho... Velhos tempos... :/
 
-O node e seu podereoso gerenciador de pacotes **npm** se encarregá de fazer todo trabalho sujo para nós! Pensando dessa maneira e a cada estudo que faço sobre essas ferramentas eu me distancio cada vez mais das ferramentas tradicionais.
+O node e seu poderoso gerenciador de pacotes **npm** se encarregá de fazer todo trabalho sujo para nós! Pensando dessa maneira, a cada estudo que faço sobre essas ferramentas, me afasto cada vez mais das ferramentas tradicionais.
 
-No próximo post adicionaremos mais funcionalidades ao backend, respondendo com conteúdo dinâmico, veremos um pouco de views, templeate egine (ejs), routes...
+No próximo post adicionaremos mais funcionalidades ao backend, respondendo com conteúdo dinâmico, veremos um pouco de views, template engine (ejs), routes...
 
-Agradeço a você leitor, esse foi o primeiro tutorial que fiz para o público, não sou um bom escritor, mas tentarei sempre ser o mais didático possível, foi uma grande experiência poder compartilhar esse básico sobre node e express, gostei dessa ideia de escrever e com certeza escreverei algo sempre que sobrar um tempinho.
+Agradeço a você leitor, não sou um bom escritor, mas tentarei sempre ser o mais didático possível, foi uma grande experiência poder compartilhar esse básico sobre node e express, gostei dessa ideia de escrever e com certeza escreverei algo sempre que sobrar um tempo.
 
-Até mais! :D
+Até mais!
