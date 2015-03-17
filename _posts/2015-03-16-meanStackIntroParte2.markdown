@@ -7,10 +7,6 @@ author:     "Bruno Milhan"
 header-img: "img/home-bg.jpg"
 ---
 
-<a href="#">
-    <img src="{{ site.baseurl }}/img/nodejs_express.jpg" alt="NodeJS+Express">
-</a>
-
 Olá;
 
 Este será o segundo post da série sobre **MEAN Stack**, caso você não tenha visto o primeiro poderá encontrá-lo [aqui](http://brunomilhan.com.br/2015/03/14/meanStackIntro/). Desta vez implementaremos mais funcionalidades no backend que utiliza **NodeJS + Express** já criado, logo é altamente recomendável que você de uma olhada no primeiro post. Caso não esteja com tempo suficiente poderá fazer clone do [repositório GitHub](https://github.com/brunomilhan/example-express-node) e executar o comando **npm install** para instalar as dependências, considerando que você já tenha NodeJS instalado em sua máquina.
@@ -19,13 +15,15 @@ Uma breve retrospectiva da primeira parte vimos como configurar um backend com N
 
 No final deste post você será capaz de criar views dinâmicas no Express utilizando EJS, verá o que é e como implementar uma rota e aprenderá boas práticas adotando a arquitetura MVC para a aplicação.
 
+<img src="{{ site.baseurl }}/img/nodejs_express.jpg" alt="NodeJS+Express" height="200" width="140">
+
 ## EJS - Template Engine ##
 
 Quem já trabalhou com javascript talvez em algum momento tenha se deparado com templates engine, se isso é algo novo para você não se preocupe pois não é algo difícil de entender.
 
 **Templates Engine são utilizados para adicionar dados dinâmicos em nossas views.** Simples? Pois é...
 
-Em nosso projeto vamos utilizar o Template Engine [EJS](http://www.embeddedjs.com/). O EJS manipula as views através da sintaxe **<%= %>**.
+Utilizaremos o Template Engine [EJS](http://www.embeddedjs.com/). O EJS manipula as views através da sintaxe **<%= %>**.
 
 Veremos como isso funciona na prática. Ainda não temos o EJS instalado, para isso basta executar no terminal o seguinte comando dentro da pasta raiz:
 
@@ -34,11 +32,13 @@ Veremos como isso funciona na prática. Ainda não temos o EJS instalado, para i
 Pronto! Agora você já tem o EJS instalado em seu projeto. Mais uma vez o npm fazendo o trabalho sujo para nós. :)
 
 Falta declarar para o Express que utilizaremos o EJS no projeto, para isso abra o arquivo **/config/express.js** e adicione a seguinte linha abaixo do comentário *environment var*:
+
 ```javascript
 //environment var
 app.set('view engine', 'ejs');
 app.set('views', './views');
 ```
+
 Não existe segredos no código acima, apenas declaramos para o express que estamos utilizando o EJS,  além disso informamos ao express que nossas views estão dentro da pasta views, logo crie uma pasta chamada views.
 
 Vamos criar a view que usará o EJS, faremos algo simples somente para exemplificar, dentro da pasta views crie o arquivo **index.ejs**: 
@@ -55,7 +55,7 @@ Vamos criar a view que usará o EJS, faremos algo simples somente para exemplifi
 </html>
 ```
 
-Legal! O *nome* será subsistido pelo nome do animal quando a página for renderizada, o backend será responsável por preencher o nome, mas para isso vamos primeiro aprender outro assunto **Routes**.
+Legal! O *nome* será subsistido pelo nome do animal quando a página for renderizada, o backend será responsável por preencher o nome, mas para isso primeiro aprenderemos outro assunto **Routes**.
 
 ## Routes##
 
@@ -79,7 +79,7 @@ Para configurar uma rota é necessário ter uma instância do Express, não temo
 
 Note que utilizamos a função get do express no código acima, não há nada a temer, se trata do função **get** do http, o que fizemos foi declarar para o Express que para as requisições a partir de / efetuaremos uma determinada ação, como eu disse no inicio para configurar uma rota combinamos um **URI + método http**. 
 
-Você já deve ter percebido que nosso controller será o responsável pelo **método http**. Isso é uma boa prática, pois estamos separando as responsabilidades da aplicação, implantaremos nosso app baseado na [arquitetura MVC](http://pt.wikipedia.org/wiki/MVC) e o controller é o responsavel por ligar nossa view no model, porém ainda não temos esse arquivo, o próximo passo será cria-lo.
+Você já deve ter percebido que o controller será o responsável pelo **método http**. Isso é uma boa prática, pois estamos separando as responsabilidades da aplicação, implantaremos o app baseado na [arquitetura MVC](http://pt.wikipedia.org/wiki/MVC) e o controller é o responsavel por ligar nossa view no model, porém ainda não temos esse arquivo, o próximo passo será cria-lo.
 
 Crie uma pasta chamada **controllers** e um arquivo chamado **home.js**, implemente um array que guardará todas as ações deste controller, lembre-se que teremos que acessar esse método dentro de outro arquivo, para isso utilize o **module.exports**:
 
@@ -92,7 +92,7 @@ module.exports = function() {
 }
 ```
 
-Precisamos renderizar a view index que criamos, além disso, lembra de nosso template ejs? Precisamos também preenche-lo, faremos isso *hardcode* desta vez, através da associação **chave : valor**. Posteriormente utilizaremos o **MongoDB** para preencher essas informações, mas este é assunto para outros posts. Implemente uma função para representar essa ação como um item do array controller:
+Precisamos renderizar a view index que criamos, além disso, lembra do template ejs? Precisamos também preenche-lo, faremos isso *hardcode* desta vez, através da associação **chave : valor**. Posteriormente utilizaremos o **MongoDB** para preencher essas informações, mas este é assunto para outros posts. Implemente uma função para representar essa ação como um item do array controller:
 
 ```javascript
 ...
@@ -146,6 +146,6 @@ Talvez você esteja decepcionado por não ter implementado alguma funcionalidade
 
 Pensei melhor sobre o assunto e irei dividir essa série de posts em duas etapas, primeiro tentarei ensinar e depois aplicarei os estudos a um problema. Cheguei a esta conclusão pois minha maior dificuldade quando leio tutoriais na internet é que as vezes os exemplos são tão aplicados que fica difícil extrair algum conhecimento.
 
-Para cumprir com minha palavra no próximo post colocarei em prática os estudos destes dois posts construindo um backend para nosso problema! :)
+Para cumprir com minha palavra no próximo post colocarei em prática os estudos destes dois posts construindo um backend para o problema proposto! :)
 
 Obrigado!
