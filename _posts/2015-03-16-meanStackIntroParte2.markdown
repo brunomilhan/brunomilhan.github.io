@@ -9,7 +9,7 @@ header-img: "img/home-bg.jpg"
 
 Olá;
 
-Este será o segundo post da série sobre **MEAN Stack**, caso você não tenha visto o primeiro poderá encontrá-lo [aqui](http://brunomilhan.com.br/2015/03/14/meanStackIntro/). Desta vez implementaremos mais funcionalidades no backend que utiliza **NodeJS + Express** já criado, logo é altamente recomendável que você de uma olhada no primeiro post. Caso não esteja com tempo suficiente poderá fazer clone do [repositório GitHub](https://github.com/brunomilhan/example-express-node) e executar o comando **npm install** para instalar as dependências, considerando que você já tenha NodeJS instalado em sua máquina.
+Bem vindo ao segundo post da série sobre **MEAN Stack** :). Caso você não tenha visto o primeiro poderá encontrá-lo [aqui](http://brunomilhan.com.br/2015/03/14/meanStackIntro/). Desta vez implementaremos mais funcionalidades no backend que utiliza **NodeJS + Express** já criado, logo é altamente recomendável que você de uma olhada no primeiro post. Caso não esteja com tempo suficiente poderá fazer clone do [repositório GitHub](https://github.com/brunomilhan/example-express-node) e executar o comando **npm install** para instalar as dependências, considerando que você já tenha NodeJS instalado em sua máquina.
 
 Uma breve retrospectiva da primeira parte vimos como configurar um backend com NodeJS e Express e implementamos a funcionalidade de servir páginas estáticas, entretanto sabemos que apenas isso não basta para construir uma aplicação.
 
@@ -19,7 +19,7 @@ No final deste post você será capaz de criar views dinâmicas no Express utili
 
 ## EJS - Template Engine ##
 
-Quem já trabalhou com javascript talvez em algum momento tenha se deparado com templates engine, se é algo novo para você não se preocupe, pois não é algo difícil de entender.
+Quem já trabalhou com javascript talvez em algum momento tenha se deparado com templates engine, se é algo novo para você não se preocupe, pois não é difícil de entender.
 
 **Templates Engine são utilizados para adicionar dados dinâmicos nas views.** Simples? Pois é...
 
@@ -31,7 +31,7 @@ Veremos como funciona na prática. Ainda não temos o EJS instalado, para instal
 
 Pronto! Agora você já tem o EJS instalado em seu projeto. Mais uma vez o npm fazendo o trabalho sujo para nós. :)
 
-Falta declarar para o Express que utilizaremos o EJS no projeto, abra o arquivo **/config/express.js** e adicione a seguinte linha abaixo do comentário *environment var*:
+Falta declarar para o Express que utilizaremos o EJS no projeto, abra o arquivo **/config/express.js** e adicione este código abaixo do comentário *environment var*:
 
 ```javascript
 //environment var
@@ -63,7 +63,7 @@ Precisamos acessar o arquivo **index.ejs** dentro do diretório views, Como fare
 
 Uma rota é uma combinação de [URI](http://pt.wikipedia.org/wiki/URI) e um método request do http. Simples, você verá na prática.
 
-Crie uma pasta chamada **routes**. Por enquanto necessitamos criar apenas uma rota para a view index que acabamos de criar, então crie um arquivo chamado **home.js** dentro de routes e implemente o código abaixo:
+Crie uma pasta chamada **routes**. Por enquanto necessitamos de apenas uma rota para a view index, então crie também um arquivo chamado **home.js** dentro de routes e implemente o código abaixo:
 
 ```javascript
 var controller = require('../controllers/home');
@@ -75,13 +75,13 @@ module.exports = function(app) {
 
 Não assuste. Vou explicar...
 
-Para configurar uma rota é necessário ter uma instância do Express, não temos ela então o jeito é recebe-la por parâmetro. Se você leu o primeiro post com atenção lembrará que temos a instância do express dentro do arquivo **/config/express.js**, lembre-se disso no final voltaremos nesse assunto.
+Para configurar uma rota é necessário ter uma instância do Express, não podemos ter mais de uma, então o jeito é recebe-la por parâmetro. Se você leu o primeiro post com atenção lembrará que temos a instância do express dentro do arquivo **/config/express.js**, lembre-se disso no final voltaremos nesse assunto.
 
 Note que utilizamos a função get do express no código acima, não há nada a temer, se trata do função **get** do http, o que fizemos foi declarar para o Express que para as requisições a partir de / efetuaremos uma determinada ação, como eu disse no inicio para configurar uma rota combinamos um **URI + método http**. 
 
-Você já deve ter percebido que o controller será o responsável pelo **método http**. Isso é uma boa prática, pois estamos separando as responsabilidades da aplicação, implantaremos o app baseado na [arquitetura MVC](http://pt.wikipedia.org/wiki/MVC) e o controller é o responsavel por ligar a view ao model, porém ainda não temos esse arquivo, o próximo passo será cria-lo.
+Você já deve ter percebido que o controller será o responsável pelo **método http**. Isso é uma boa prática, pois estamos separando as responsabilidades da aplicação, implantaremos o app baseado na [arquitetura MVC](http://pt.wikipedia.org/wiki/MVC) e o controller será o responsável por ligar a view ao model, porém ainda não temos esse arquivo, o próximo passo será cria-lo.
 
-Crie uma pasta chamada **controllers** e um arquivo chamado **home.js**, implemente um array que guardará todas as ações deste controller, lembre-se que teremos que acessar esse método dentro de outro arquivo, então utilize o **module.exports**:
+Crie uma pasta chamada **controllers** e um arquivo chamado **home.js**, implemente um array que guardará todas as ações deste controller, lembre-se teremos que acessar esse método dentro de outro arquivo, então utilize o **module.exports**:
 
 ```javascript
 module.exports = function() {
@@ -92,7 +92,7 @@ module.exports = function() {
 }
 ```
 
-Precisamos renderizar a view index que criamos, além disso, lembra do template ejs? Precisamos também preenche-lo, faremos isso *hardcode* desta vez, através da associação **chave : valor**. Posteriormente utilizaremos o **MongoDB** para preencher essas informações, mas este é assunto para outros posts. Implemente uma função para representar essa ação como um item do array controller:
+Precisamos renderizar a view index que criamos, além disso, precisamos também preencher o nome do animal, faremos isso *hardcode* desta vez, através da associação **chave : valor**. Posteriormente utilizaremos o **MongoDB** para preencher essas informações, mas este é assunto para outros posts. Implemente uma função para representar essa ação como um item do array controller:
 
 ```javascript
 ...
@@ -109,11 +109,11 @@ Perceba que a ação é uma requisição http, logo, temos dois parâmetros **re
 
 Você deve ter percebido que está quase tudo pronto, o que fizemos até aqui foi:
 
- 1. Instalamos o EJS;
- 2. Configuramos o Template Engine no Express;
- 3. Criamos uma view com uma tag ejs para ser renderizada;
- 4. Criamos uma Rota;
- 5. Adotamos boas práticas e criamos um controller para a ação de renderizar a view.
+ 1. Instalar o EJS;
+ 2. Configur o Template Engine no Express;
+ 3. Criar uma view com uma tag ejs para ser renderizada;
+ 4. Criar uma Rota;
+ 5. Adotar boas práticas e criar um controller para a ação de renderizar a view.
 
 O 6º e último passo é 'avisar ao express' que implementamos as etapas acima. Como? Fácil! Lembra que disse no começo que precisamos de uma instância do Express para a rota funcionar?
 
@@ -139,7 +139,7 @@ module.exports = function() {
 };
 ```
 
-### Pronto! :) ###
+## Pronto! :) ##
 Inicie o servidor através do comando **node server** dentro da pasta raiz, você deverá ver que o Gato Louco está desaparecido. hehe
 
 Talvez você esteja decepcionado por não ter implementado alguma funcionalidade da ideia de recuperar animais de estimação desaparecidos. 
