@@ -19,19 +19,19 @@ No final deste post você será capaz de criar views dinâmicas no Express utili
 
 ## EJS - Template Engine ##
 
-Quem já trabalhou com javascript talvez em algum momento tenha se deparado com templates engine, se isso é algo novo para você não se preocupe pois não é algo difícil de entender.
+Quem já trabalhou com javascript talvez em algum momento tenha se deparado com templates engine, se é algo novo para você não se preocupe, pois não é algo difícil de entender.
 
 **Templates Engine são utilizados para adicionar dados dinâmicos nas views.** Simples? Pois é...
 
 Utilizaremos o Template Engine [EJS](http://www.embeddedjs.com/). O EJS manipula as views através da sintaxe **<%= %>**.
 
-Veremos como isso funciona na prática. Ainda não temos o EJS instalado, para isso basta executar no terminal o seguinte comando dentro da pasta raiz:
+Veremos como funciona na prática. Ainda não temos o EJS instalado, para instalar execute no terminal o seguinte comando dentro da pasta raiz:
 
     npm install ejs --save
 
 Pronto! Agora você já tem o EJS instalado em seu projeto. Mais uma vez o npm fazendo o trabalho sujo para nós. :)
 
-Falta declarar para o Express que utilizaremos o EJS no projeto, para isso abra o arquivo **/config/express.js** e adicione a seguinte linha abaixo do comentário *environment var*:
+Falta declarar para o Express que utilizaremos o EJS no projeto, abra o arquivo **/config/express.js** e adicione a seguinte linha abaixo do comentário *environment var*:
 
 ```javascript
 //environment var
@@ -55,11 +55,11 @@ Vamos criar a view que usará o EJS, faremos algo simples somente para exemplifi
 </html>
 ```
 
-Legal! O *nome* será subsistido pelo nome do animal quando a página for renderizada, o backend será responsável por preencher o nome, mas para isso primeiro aprenderemos outro assunto **Routes**.
+Legal! O *nome* será subsistido pelo nome do animal quando a página for renderizada, o backend será responsável por preenche-lo, mas primeiro aprenderemos outro assunto: **Routes**.
 
 ## Routes##
 
-Precisamos acessar o arquivo **index.ejs** dentro do diretório views, fazemos isso declarando uma rota no Express.
+Precisamos acessar o arquivo **index.ejs** dentro do diretório views, Como faremos isso? Através de rotas do Express.
 
 Uma rota é uma combinação de [URI](http://pt.wikipedia.org/wiki/URI) e um método request do http. Simples, você verá na prática.
 
@@ -81,7 +81,7 @@ Note que utilizamos a função get do express no código acima, não há nada a 
 
 Você já deve ter percebido que o controller será o responsável pelo **método http**. Isso é uma boa prática, pois estamos separando as responsabilidades da aplicação, implantaremos o app baseado na [arquitetura MVC](http://pt.wikipedia.org/wiki/MVC) e o controller é o responsavel por ligar a view ao model, porém ainda não temos esse arquivo, o próximo passo será cria-lo.
 
-Crie uma pasta chamada **controllers** e um arquivo chamado **home.js**, implemente um array que guardará todas as ações deste controller, lembre-se que teremos que acessar esse método dentro de outro arquivo, para isso utilize o **module.exports**:
+Crie uma pasta chamada **controllers** e um arquivo chamado **home.js**, implemente um array que guardará todas as ações deste controller, lembre-se que teremos que acessar esse método dentro de outro arquivo, então utilize o **module.exports**:
 
 ```javascript
 module.exports = function() {
@@ -115,7 +115,7 @@ Você deve ter percebido que está quase tudo pronto, o que fizemos até aqui fo
  4. Criamos uma Rota;
  5. Adotamos boas práticas e criamos um controller para a ação de renderizar a view.
 
-O 6º e último passo é 'avisar ao express' que fizemos tudo isso. Como? Fácil! Lembra que disse no começo que precisamos de uma instância do Express para a rota funcionar?
+O 6º e último passo é 'avisar ao express' que implementamos as etapas acima. Como? Fácil! Lembra que disse no começo que precisamos de uma instância do Express para a rota funcionar?
 
 Abra o arquivo **/config/express.js** e adicione a dependência da rota criada através da função **require**, em seguida abaixo do comentário *middlewares* chame a função enviando app, **home(app)**. Seu arquivo express.js deverá ficar desta maneira:
 
@@ -144,7 +144,7 @@ Inicie o servidor através do comando **node server** dentro da pasta raiz, voc�
 
 Talvez você esteja decepcionado por não ter implementado alguma funcionalidade da ideia de recuperar animais de estimação desaparecidos. 
 
-Pensei melhor sobre o assunto e irei dividir essa série de posts em duas etapas, primeiro tentarei ensinar e depois aplicarei os estudos a um problema. Cheguei a esta conclusão pois minha maior dificuldade quando leio tutoriais na internet é que as vezes os exemplos são tão aplicados que fica difícil extrair algum conhecimento.
+Pensei melhor sobre o assunto e dividirei essa série de posts em duas etapas, primeiro tentarei ensinar e depois aplicarei os estudos a um problema. Cheguei a esta conclusão pois minha maior dificuldade quando leio tutoriais na internet é que as vezes os exemplos são tão aplicados que fica difícil extrair algum conhecimento.
 
 Para cumprir com minha palavra no próximo post colocarei em prática os estudos destes dois posts construindo um backend para o problema proposto! :)
 
