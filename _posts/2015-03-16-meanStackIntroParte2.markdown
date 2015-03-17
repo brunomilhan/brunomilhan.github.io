@@ -21,7 +21,7 @@ No final deste post você será capaz de criar views dinâmicas no Express utili
 
 Quem já trabalhou com javascript talvez em algum momento tenha se deparado com templates engine, se isso é algo novo para você não se preocupe pois não é algo difícil de entender.
 
-**Templates Engine são utilizados para adicionar dados dinâmicos em nossas views.** Simples? Pois é...
+**Templates Engine são utilizados para adicionar dados dinâmicos nas views.** Simples? Pois é...
 
 Utilizaremos o Template Engine [EJS](http://www.embeddedjs.com/). O EJS manipula as views através da sintaxe **<%= %>**.
 
@@ -79,7 +79,7 @@ Para configurar uma rota é necessário ter uma instância do Express, não temo
 
 Note que utilizamos a função get do express no código acima, não há nada a temer, se trata do função **get** do http, o que fizemos foi declarar para o Express que para as requisições a partir de / efetuaremos uma determinada ação, como eu disse no inicio para configurar uma rota combinamos um **URI + método http**. 
 
-Você já deve ter percebido que o controller será o responsável pelo **método http**. Isso é uma boa prática, pois estamos separando as responsabilidades da aplicação, implantaremos o app baseado na [arquitetura MVC](http://pt.wikipedia.org/wiki/MVC) e o controller é o responsavel por ligar nossa view no model, porém ainda não temos esse arquivo, o próximo passo será cria-lo.
+Você já deve ter percebido que o controller será o responsável pelo **método http**. Isso é uma boa prática, pois estamos separando as responsabilidades da aplicação, implantaremos o app baseado na [arquitetura MVC](http://pt.wikipedia.org/wiki/MVC) e o controller é o responsavel por ligar a view ao model, porém ainda não temos esse arquivo, o próximo passo será cria-lo.
 
 Crie uma pasta chamada **controllers** e um arquivo chamado **home.js**, implemente um array que guardará todas as ações deste controller, lembre-se que teremos que acessar esse método dentro de outro arquivo, para isso utilize o **module.exports**:
 
@@ -107,7 +107,7 @@ Perceba que a ação é uma requisição http, logo, temos dois parâmetros **re
 
 ### Últimos passos... :) ###
 
-Você deve ter percebido que agora nossa implementação está quase pronta, tudo que fizemos até aqui foi:
+Você deve ter percebido que está quase tudo pronto, o que fizemos até aqui foi:
 
  1. Instalamos o EJS;
  2. Configuramos o Template Engine no Express;
@@ -115,7 +115,7 @@ Você deve ter percebido que agora nossa implementação está quase pronta, tud
  4. Criamos uma Rota;
  5. Adotamos boas práticas e criamos um controller para a ação de renderizar a view.
 
-O 6º e último passo é 'avisar ao express' que fizemos tudo isso. Como? Fácil! Lembra que disse no começo que precisamos de uma instância do Express para nossa rota funcionar?
+O 6º e último passo é 'avisar ao express' que fizemos tudo isso. Como? Fácil! Lembra que disse no começo que precisamos de uma instância do Express para a rota funcionar?
 
 Abra o arquivo **/config/express.js** e adicione a dependência da rota criada através da função **require**, em seguida abaixo do comentário *middlewares* chame a função enviando app, **home(app)**. Seu arquivo express.js deverá ficar desta maneira:
 
